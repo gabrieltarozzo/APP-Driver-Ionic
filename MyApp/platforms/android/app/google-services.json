@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "870553524401",
+    "firebase_url": "https://app-driver-9a889.firebaseio.com",
+    "project_id": "app-driver-9a889",
+    "storage_bucket": "app-driver-9a889.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870553524401:android:2c57aea8540ae0eac2ea90",
+        "android_client_info": {
+          "package_name": "com.delivery.atalosdriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870553524401-lqluic5eecpnresqf3jn2kpfjin6ddpj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr88UVIDBZICKzNt_dQUFwzbWgB1HLzMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870553524401-lqluic5eecpnresqf3jn2kpfjin6ddpj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "870553524401-61h1bp3hqcu804geddgod8um4tlnh536.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.delivery.atalosdriver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

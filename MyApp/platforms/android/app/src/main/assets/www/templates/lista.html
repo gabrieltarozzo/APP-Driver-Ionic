@@ -1,0 +1,101 @@
+
+<ion-view id="lista" ng-controller="CategoriaCtrl"  title="Principal"  class="index-app">
+    <link rel="manifest" href="../manifest.json">
+<!-- title="Cardápio - {{mostraHor()}}" <marquee LOOP=4 DIRECTION=RIGHT BEHAVIOR=ALTERNATE> </marquee>  - {{mostraHor()}} " -->
+<style>
+.bgx.active {display:none; }
+</style>
+
+
+<ion-nav-bar class="roxo" >
+    </ion-nav-bar>
+
+<ion-content class="has-header" overflow-scroll="true" has-bouncing="false"  >
+
+    <!-- adminCtrl -->
+    <ion-list>
+
+
+<script id = "my-modalHorario.html" type = "text/ng-template" >
+    <ion-modal-view id="status" class="status-app " >
+            <ion-nav-bar class="roxo" >
+
+                    <ion-nav-buttons side="left">
+                        <button ng-click = "closemodalHorario()" class="button button-icon">
+                    <a><i class="button icon-left ion-ios-arrow-left button-clear button-dark"></i> </a>
+                        </button>
+
+                    </ion-nav-buttons>
+
+                </ion-nav-bar>
+        <ion-content overflow-scroll="true" has-bouncing="false" >
+      <div class="container" align="center">
+          <div style="margin-top:20%;">
+
+        <h2 style="color:white; font-size:29px;"> Horários </h2>
+
+      <br>
+      <div style="text-align:left;width:90%;border:solid;padding:5px;border-width:1px;border-color:black;"  ng-controller="meusHorarios"  >
+      <b style="color:black; font-size:15px;width:100%" ng-repeat="n in showHorarios">
+      {{n.diaSemana}} <b style="float:right;font-size:14px;white-space:normal;"> {{n.horarios}} </b> </p>
+
+
+<p> </p>
+      </b>
+      </div><br>
+
+      <button   class="btnet btn--bevel"  style="margin-top:20px;font-size:16px;width:70%;" ng-click = "closemodalHorario()"> <b> Fechar </b> </button>
+      <div>
+      </div>
+       </ion-content>
+    </ion-modal-view>
+ </script>
+        <div class="carder" align="center">
+                <div class="photo"></div>
+                <div align="center" >
+                    <div class="banner" align="center"></div>
+                </div>
+                <div class="social-media-banner3" style="width:100%;margin-left:-05px;"> <b style="font-size:25px;color:rgb(7, 8, 7);">{{mostraHor()}}</b> </div>
+            <div class="social-media-banner2" style="width:100%;padding:5px;display:none;">
+                  <button class="contact" >  Horários de Funcionamento </button>
+            </div>
+            <div class="social-media-banner2" style="width:100%;padding:5px;color:white;">
+                <button ng-click="openmodalHorario()" class="btnet btn--bevel" style="width:200px;height:99%;font-family:arial;font-size:14px;"> <b> HORÁRIOS </b> </button>
+            </div>
+             <div ng-controller="minhasRedesSociais" class="social-media-banner" style="width:97%;padding:5px;" >
+                 <a ng-repeat="n in showRedes" ng-show="n.facebook" href="{{n.facebook}}"> <i style="color:black;" class="fab fa-facebook"> </i></a>
+                 <a ng-repeat="n in showRedes" ng-show="n.instagram"  href="{{n.instagram}}"> <i style="color:black;" class="fab fa-instagram"> </i></a>
+                 <a ng-repeat="n in showRedes" ng-show="n.maps" href="{{n.maps}}"> <i style="color:black;" class="fas fa-map-marked-alt"></i> </a>
+             </div>
+        </div>
+          <br>
+<br>
+          <div class="list" >
+
+            <div class="item item-divider" align="center">
+          De quem você precisa?
+            </div>
+
+            </div>
+
+        <ion-item class="card"  ng-repeat="x in showCategorias" ng-click="pegarID(x.id, x.nome)">
+            <!-- href="#/produtos/{{x.id}}" talvez seja possivel se eu armazenar o id da categoria no storage e pegar o id na proxima tela para usar como filtro.. -->
+            <div class="info-card-home">
+                <div class="row" >
+                    <div class="col col-5 left" >
+                        <h2> {{x.nome}}</h2>
+                    </div>
+                </div>
+                <!--<img ng-src="http://localhost/GerencialDelivery/imagens_categoria/{{x.imagens}}" class="bg-card" width="100%"> -->
+
+            </div>
+
+            <!-- <a class="button button-icon icon ion-ios-trash-outline" ng-click="delCategoria({{x.id}})"></a> -->
+
+        </ion-item>
+
+    </ion-list>
+
+</ion-content>
+</ion-view>
+

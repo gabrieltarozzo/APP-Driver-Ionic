@@ -1,0 +1,204 @@
+<ion-view ng-controller="ProdutosCtrl" title="Solicitar Frete" id="produtos" class="produtos-app">
+
+  <ion-nav-bar class="roxo">
+      <ion-nav-buttons side="right">
+          <DIV STYLE="WIDTH:100%;">
+         <!--  <button ng-click="Ircarrinho()" ng-show="loggedin_id" class="button button-icon">
+            <h1 ng-class="getClass23()"> <i ng-class="getClass()"></i> </h1>
+          </button> -->
+      </DIV>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="left">
+          <button class="button button-icon">
+              <a href="#/produtos" class="voltarA">
+                  <i class="button icon-left ion-ios-arrow-left button-clear button-dark"><b class="voltarText">Voltar</b></i>
+              </a>
+          </button>
+      </ion-nav-buttons>
+
+  </ion-nav-bar>
+
+<style>
+input::-webkit-input-placeholder  {
+  color:rgb(3, 3, 3) !important ;
+}
+</style>
+
+  <ion-content class="has-header" overflow-scroll="true" has-bouncing="false" >
+
+      <!-- adminCtrl -->
+      <ion-list>
+
+    <!-- frutas // necessario aplicar os valores corretos(banner de promoção para mostrar o valor real de promoção -->
+<style>
+.ion-modal-view {width: 90%; height: 30%;}
+</style>
+
+<!-- fim frutas             -->
+<!-- Inicio modal descrição -->
+
+
+<!-- Fim Modal Descrição -->
+          <!-- showAdmins  borderino-->
+          <div >
+          <div class="list" >
+
+
+            <div class="item item-divider">
+              Tipo de item
+            </div>
+            <ul class="list" style="padding:0px;margin:0px;">
+              <li class="item">
+                <!-- ng-change="salvaCustom()" -->
+            <select  ng-model="tipoDeItem"  class="item item-input" style="border-color:black;color:black !important;background-color:white;" >
+              <option  class="enx" selected></option>
+              <option  ng-repeat="x in showTipoDeItem " class="enx" >{{x.nome}}</option>
+            </select>
+          </li>
+        </ul>
+
+            <div class="item item-divider">
+              Descrição do item
+            </div>
+            <div class="form-group">
+           <!--  <textarea   style="width:90%;margin-top:15px;" maxlength="200" rows="3" cols="45" ng-model="form.observacao" type="text" placeholder="(OPCIONAL) Ex: Gostaria que..."> </textarea> -->
+           <section class="full">
+              <div class="container">
+                    <div >
+                        <div class="form col-sm-8 col-sm-offset-2">
+                            <form>
+                                <div class="inputcontainer" >
+                                    <textarea rows="4" placeholder="(OBRIGATÓRIO) Ex: Copo de açai, uma bicicleta..." ng-model="descricaoDoitem" class="textarea" id="textarea"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          </div>
+
+            <div class="item item-divider">
+              Observação Extra
+            </div>
+            <div class="form-group">
+           <!--  <textarea   style="width:90%;margin-top:15px;" maxlength="200" rows="3" cols="45" ng-model="form.observacao" type="text" placeholder="(OPCIONAL) Ex: Gostaria que..."> </textarea> -->
+           <section class="full">
+              <div class="container">
+                    <div >
+                        <div class="form col-sm-8 col-sm-offset-2">
+                            <form>
+                                <div class="inputcontainer" >
+                                    <textarea rows="4" placeholder="(OPCIONAL)" ng-model="observacaoExtra" class="textarea" id="textarea2"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          </div>
+
+          <div class="item item-divider" >
+            Seu Endereço
+           </div>
+
+           <ul class="list"  style="padding:0px;margin:0px;" ng-repeat="o in showEnderecoUser">
+            <li class="item">
+
+           <div>
+            <h2 style="text-align:left;font-size:14px;color:black;font-weight: bolder;">{{o.cidade}} </h2>
+            <h2 style="text-align:left;font-size:14px;color:black;font-weight: bolder;">{{o.CEP}} </h2>
+            <h2 style="text-align:left;font-size:14px;color:black;font-weight: bolder;">{{o.bairro}} </h2>
+            <h2 style="text-align:left;font-size:14px;color:black;font-weight: bolder;">{{o.rua}}, {{o.numero}} </h2>
+            <h2 ng-show="o.complemento != '' && o.complemento != 'undefined'" style="text-align:left;font-size:14px;color:black;font-weight: bolder;">{{o.complemento}} </h2>
+            </div>
+
+            </li>
+            </ul>
+
+          <div class="item item-divider" >
+            Endereço do Cliente
+           </div>
+
+           <ul class="list"  style="padding:0px;margin:0px;">
+            <li class="item">
+
+           <div>
+            <h2 style="text-align:left;font-size:14px;color:black;font-weight: bolder;">{{cidade}} </h2>
+            <h2 style="text-align:left;font-size:14px;color:black;font-weight: bolder;">{{CEP}} </h2>
+            <h2 style="text-align:left;font-size:14px;color:black;font-weight: bolder;">{{bairro}} </h2>
+            <h2 style="text-align:left;font-size:14px;color:black;font-weight: bolder;">{{rua}}, {{numero}} </h2>
+            <h2 ng-show="complemento != '' && complemento != 'undefined'" style="text-align:left;font-size:14px;color:black;font-weight: bolder;">{{complemento}} </h2>
+            </div>
+
+            </li>
+            </ul>
+
+                <div class="item item-divider" >
+                  Cliente
+                 </div>
+
+            <ul class="list"  style="padding:0px;margin:0px;">
+
+              <li class="item">
+
+                  <div>
+              <h2 style="text-align:left;font-size:14px;color:black;font-weight: bolder;">{{nomeCliente}} </h2>
+              <h2 style="text-align:left;font-size:14px;color:black;"> <b>Telefone: </b> {{telefoneCliente}} </h2>
+              <h2 style="text-align:left;font-size:14px;color:black;"> <b>Distância: </b><b style="color:green;">{{distancia}} KM</b>  </h2>
+              <h2 style="text-align:left;font-size:14px;color:black;"> <b>Frete: </b><b style="color:green;"> R$ {{frete}} </b>  </h2>
+                 </div>
+
+              </li>
+
+
+
+                <div class="item item-divider">
+                  Forma de Pagamento
+                </div>
+
+              <ul class="list" ng-controller="salvaCustom">
+                <li class="item">
+                <select  ng-model="Custom" ng-change="salvaCustom()" class="item item-input" style="border-color:black;color:black !important;background-color:white;" >
+                  <option  class="enx" selected></option>
+                  <option  ng-repeat="y in showExtras " class="enx" >{{y.formaPagamento}}</option>
+                </select>
+
+                  <style>
+                  #text2::-webkit-input-placeholder{
+                      color:rgb(17, 13, 13) !important;
+                  }
+                    </style>
+                <ion-list class="login-app" ng-hide="SalvaCustom != 'Dinheiro'" >
+
+                    <label class="item-input-coletivando item-floating-label"  style="color:white !important;">
+                        <span  style="width:100%;color:rgb(7, 6, 6) !important;" class="input-label">Troco para quanto?</span>
+                       <input id="text2" style="color:rgb(15, 13, 13) !important;" maxlength="9" placeholder="R$0,00 - Não preciso de troco!" type="text" ng-model="money" ng-change="salvaCustomValor()" ui-money-mask currency-symbol="R$">
+
+                    </label>
+
+                  </ion-list>
+                  </li>
+                </ul>
+
+             <div align="center" style="padding:20px;">
+
+              <button class="btnet btn--bevel" ng-click="enviarPedido(tipoDeItem, descricaoDoitem, observacaoExtra, cidade, bairro, rua, numero, complemento, nomeCliente, telefoneCliente, frete, distancia, id_usuarios, CEP)"> <b>Solicitar</b> </button>
+              <a href="#/produtos" class="voltarA">     <button class="btnet btn--bevel" style="background-color:rgb(211, 11, 11);" ng-click="CadastrarEndNovoCliente()"> <b>Cancelar</b> </button>
+
+            </div>
+
+          </ul>
+
+        </div>
+
+          </div>
+
+          <!-- ng-click="pegarIDProduto({{'x.nome'}}, {{x.id}}, {{'x.descricao'}}, {{'x.valor'}}, {{'x.promo_valor'}}, {{'x.imagens'}}, {{'x.temcomple'}}, {{'x.situacao_id'}})"  -->
+          <!--  | filter:searchText | filter:{ categoria_produtos_id: loggedin_id_cat } | filter:{ situacao_id:'1'} && filter:{ situacao_id:'3'} | filter:{ empresa: Empresa.numero} | orderBy: 'valor':true -->
+
+      </ion-list>
+
+  </ion-content>
+
+</ion-view>

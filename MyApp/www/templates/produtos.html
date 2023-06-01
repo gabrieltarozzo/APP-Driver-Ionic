@@ -1,0 +1,100 @@
+<ion-view ng-controller="ProdutosCtrl" title="Clientes" id="produtos" class="produtos-app">
+
+  <ion-nav-bar class="roxo">
+
+      <ion-nav-buttons side="right">
+          <DIV STYLE="WIDTH:100%;">
+
+         <!--  <button ng-click="Ircarrinho()" ng-show="loggedin_id" class="button button-icon">
+            <h1 ng-class="getClass23()"> <i ng-class="getClass()"></i> </h1>
+          </button> -->
+
+      </DIV>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="left">
+          <button class="button button-icon">
+              <a href="#/tab/lista" class="voltarA">
+                  <i class="button icon-left ion-ios-arrow-left button-clear button-dark"><b class="voltarText">Voltar</b></i>
+              </a>
+          </button>
+      </ion-nav-buttons>
+
+  </ion-nav-bar>
+
+<style>input::-webkit-input-placeholder  {
+  color:rgb(3, 3, 3) !important ;
+
+}</style>
+
+
+  <ion-content class="has-header" overflow-scroll="true" has-bouncing="false" >
+      <div align="center" style="position:fixed;width:100%;z-index:9999999;" >
+          <label style="width:100%;background:rgba(187, 184, 184, 0.671);z-index:2;" class="item-input" id="prDios-search2">
+          <i  style="color:black;font-size:20px;" class="icon ion-search placeholder-icon"></i>
+              <input style="font-size: 15px; color:rgb(3, 3, 3) !important; font-weight: bold;text-transform: uppercase;" type="search" ng-click="scrollTo()" ng-model="searchText" placeholder="Localizar">
+            </label>
+          </div>
+      <!-- adminCtrl -->
+      <ion-list>
+
+    <!-- frutas // necessario aplicar os valores corretos(banner de promoção para mostrar o valor real de promoção -->
+<style>
+.ion-modal-view {width: 90%; height: 30%;}
+
+</style>
+
+
+     <div  style="margin-top:80px;"> <!-- era 10xpx -->
+     </div>
+              <!-- fim frutas -->
+<!-- Inicio modal descrição -->
+
+
+<!-- Fim Modal Descrição -->
+          <!-- showAdmins  borderino-->
+
+          <div class="list" >
+
+            <div class="item item-divider">
+              Cadastre Novo Cliente
+            </div>
+
+            <a class="item" align="center">
+          <button class="btnet btn--bevel" ng-click="CadastrarEndNovoCliente()"> <b>Cadastrar</b> </button>
+            </a>
+
+            <div class="item item-divider">
+              Lista de Clientes
+            </div>
+
+            <ul class="list" ng-repeat="x in showEnderecoClientes | filter:searchText" style="padding:0px;margin:0px;">
+              <li class="item">
+
+               <h2 style="font-size:14px;color:black;font-weight: bolder;">{{x.nomeCliente}} </h2>
+                <h2 style="font-size:14px;color:black;"> Telefone: {{x.telefoneCliente}} </h2>
+                <h2 style="font-size:14px;color:black;"> <b>Frete: </b><b style="color:green;"> R$ {{x.frete}} </b>  </h2>
+
+
+
+              </li>
+             <div align="center" style="padding:20px;">
+              <button class="btnet btn--bevel"
+              ng-click="selecionarCliente(x.id, x.nomeCliente, x.frete, x.distancia,
+              x.uf, x.cidade, x.bairro,
+              x.rua, x.numero, x.empresa, x.complemento, x.CEP, x.id_usuarios, x.pais,
+              x.telefoneCliente, x.tipoDeItem, x.descricaoDoitem, x.observacaoExtra, x.Latitude)"> <b>Selecionar</b> </button>
+             <!--  <button class="btnet btn--bevel" style="background-color:rgb(221, 147, 9);" ng-click=""> <b>Editar</b> </button> -->
+            </div>
+          </ul>
+
+          </div>
+
+                <!-- ng-click="pegarIDProduto({{'x.nome'}}, {{x.id}}, {{'x.descricao'}}, {{'x.valor'}}, {{'x.promo_valor'}}, {{'x.imagens'}}, {{'x.temcomple'}}, {{'x.situacao_id'}})"  -->
+                <!--  | filter:searchText | filter:{ categoria_produtos_id: loggedin_id_cat } | filter:{ situacao_id:'1'} && filter:{ situacao_id:'3'} | filter:{ empresa: Empresa.numero} | orderBy: 'valor':true -->
+
+      </ion-list>
+
+  </ion-content>
+
+</ion-view>

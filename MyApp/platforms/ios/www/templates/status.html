@@ -1,0 +1,137 @@
+<ion-view  title="Seus Status" id="status" class="status-app">
+
+    <ion-nav-bar class="roxo">
+
+   </ion-nav-bar>
+
+   <!-- class="has-header" -->
+   <ion-content class="has-header" overflow-scroll="true" has-bouncing="false" ng-controller="StatusCtrl" >
+           <div align="center">
+         <button  ng-click="att()"  class="btnet btn--bevel btnATT"> Atualizar! </button>
+           </div>
+       <ion-list>
+           <ion-item align="center" ng-repeat="x in showStatus" class="IonItemStyle"> 
+               <div class="info-card-home">
+                   <div class="roww">
+                           <script id = "my-modalPedido.html" type = "text/ng-template" >
+                               <ion-modal-view id="status" > <!-- class="status-app"  --> 
+                                   <ion-content overflow-scroll="false" has-bouncing="false">
+                                 <div class="container" align="center">
+                                   <div > <!-- class="card " -->
+                                    <br>
+                                  <div class="card-header">
+                                  <h4 class="modalPe ">  Pedido de Frete </h4>
+                                   <strong> 
+                                 <h4 class="maroon">  Dia: {{formatDate(x.created) | date:'dd/MM/yyyy'}} </h4>
+                                 <p ng-hide="x.status == 'Encaminhado ao motorista!' || x.status == 'Motorista a caminho!'">{{x.status}}</p>
+                                 <h2 style="color:#696969" ng-hide="x.status != 'Aguardando'"> Seu pedido foi enviado.</h2>
+             
+                                 <h2 style="color:#696969" ng-hide="x.status != 'Encaminhado ao motorista!'"> Chegou um pedido!</h2>
+                                 <h2 style="color:#c50909" ng-hide="x.status != 'Encaminhado ao motorista!'"> Confira o pedido antes de aceitar a corrida! </h2>
+             
+                                 <h2 style="color:#696969" ng-hide="x.status != 'Motorista a caminho!'"> Retire o pedido e entregue nos endereços especificados!</h2>
+                                 <h2 style="color:#c50909" ng-hide="x.status != 'Motorista a caminho!'"> Finalize apenas quando entregar o pedido. </h2>
+                                   </div>
+                                 <div class="card-body">
+                                 <div  align="center">
+                                     <h4  class="center blackN">Código: #{{x.id}}<br><br></h4>
+                                     <div class="div3"  ng-repeat="y in showEndUsuario"  >
+                                      <h4 class="center blackN"  ng-repeat="n in showUsuario" >Loja: {{n.nome}} </h4>
+                                      <b class="redN"> LOCAL DA RETIRADA </b>
+                                      <a href="{{end1}}">  <button class="btnet btn--bevel btnRedN"><i  class="fas fa-map-marked-alt iconredN"> </i></button></a>
+                                      <b><p class="marginbottom"> {{y.cidade}} </p>  {{y.bairro}}  <p class="marginbottom">  {{y.rua}}, {{y.numero}}</p>
+                                        <b>  Telefone: {{y.telefoneCliente}} -</b>
+                                        <b>  CEP: {{y.CEP}} </b>
+                                        <p> </p>
+                                       <div ng-show="y.complemento != '' && y.complemento != 'undefined'"> {{y.complemento}}</div>
+                                     </b>
+                                      </div>
+                                   <div class="div2"  style="border-top:none;"> </div>
+                                  <!--  <h4 class="center blackN">Cliente: {{x.nomeCliente}} </h4>
+                                 <b class="greenN"> LOCAL DA ENTREGA </b>
+                               <a href="{{end2}}">  <button class="btnet btn--bevel btnGreen"><i  class="fas fa-map-marked-alt markedstyle"> </i></button></a>
+                                 <b><p class="marginbottom"> {{x.cidade}} </p>  {{x.bairro}}  <p class="marginbottom">  {{x.rua}}, {{x.numero}}</p>
+                                  <b>  Telefone: {{x.telefoneCliente}} -</b>
+                                  <b>  CEP: {{x.CEP}} </b>
+                                  <p> </p>
+                                  <div ng-show="x.complemento != '' && x.complemento != 'undefined'"> {{x.complemento}}</div>
+                                </b>
+                                  </div> -->
+                                     <div class="dashed1" >
+                                      <h4 class="center blackN"> Descrição: </h4>
+                                      <b> Tipo de item:  {{x.tipoDeItem}}</b> <p> </p>
+                                      <b> Descrição do item: {{x.descricaoDoitem}} </b> <p> </p>
+                                      <b> Numero de entregas: {{x.numeroPedidos}} </b> <p> </p>
+                                      <b>  Solicitado: {{x.vocation}}</b>
+                                      <p> </p>
+                                      <div ng-show="x.complemento != '' && x.complemento != 'undefined'"> {{x.complemento}}</div>
+                                      </b>
+                                    </div>
+                                     <br>
+                                     <div class="dashedN" >
+                                    <!--  <h4 class="center" style="color:black;"> Distância: {{x.distancia}} KM </h4> -->
+                                 <h4 class="center blackN">  Custo da entrega: {{x.valorFrete | currency:'R$'}} </h4>
+                                 <h4 class="center blackN"> Pagamento: {{x.formaPagamento}} </h4>
+                                 <h4 ng-show="x.formaPagamento == 'Dinheiro' && x.troco != '0' && x.troco != 'undefined' && x.troco != '' && x.troco != ' '" > <strong  ><div align="center">Troco para: {{x.troco | currency:'R$'}}</div> </strong> </h4>
+                                 <h4 ng-show="x.formaPagamento == 'Dinheiro' && x.troco == '0' || x.troco == 'undefined' || x.troco == '' || x.troco == ' '" > <strong  ><div align="center">Não precisa de troco.</div> </strong> </h4>
+                                <!-- <h4> <strong  ><div align="center">Total: {{x.valor | currency:'R$'}}</div> </strong> </h4> -->
+                                     </div>
+                                 <div align="center">
+                               <!--  <button ng-click = "Construcao()" style="color:black;width:80%;" ng-show="x.status != 'Aguardando'" class="button btn btn-green button-block"> Pedir novamente! </button> -->
+                                 <button ng-click = "closeModalPedido()" class="btnet btn--bevel fecharbutton"> Fechar </button>
+                                 </div>
+                                </div>
+                              </div>
+                            </div>
+                                  </ion-content>
+                               </ion-modal-view>
+                            </script>
+                            <!--  btnet btn--bevel  -->
+               <div class="container">
+                <div class="header-photo"> </div>
+                <div class="profile">
+                  <div class="logoAPPSTATUS"></div>
+                  <div class="profile-picture" >
+                    <img  ng-src="https://topentregas.com.br/processomotorista/fotosMotorista/{{x.foto_motorista}}" alt=""/>
+                  </div>
+                  <div class="profile-content">
+                    <h3 ng-hide="x.status == 'Encaminhado ao motorista!' ">{{loggedin_status}}</h3>
+                    <p ng-hide="x.status == 'Encaminhado ao motorista!' || x.status == 'Motorista a caminho!'">{{x.status}}</p>
+                    <h2 style="color:#696969" ng-hide="x.status != 'Aguardando'"> Seu pedido foi enviado.</h2>
+
+                    <h2 style="color:#696969" ng-hide="x.status != 'Encaminhado ao motorista!'"> Chegou um pedido!</h2>
+                    <h2 style="color:#c50909" ng-hide="x.status != 'Encaminhado ao motorista!'"> Confira o pedido antes de aceitar a corrida! </h2>
+
+                    <h2 style="color:#696969" ng-hide="x.status != 'Motorista a caminho!'"> Retire o pedido e entregue nos endereços especificados!</h2>
+                    <h2 style="color:#c50909" ng-hide="x.status != 'Motorista a caminho!'"> Finalize apenas quando entregar o pedido. </h2>
+                  </div>
+                  <ul class="profile-contact">
+                    <li style="white-space:normal;"><i class="fas fa-clock"> </i><span>Data: {{formatDate(x.created) | date: 'dd/MM/yyyy'}}</span></li>
+                    <a  href="tel:(15)99710-6732"><li style="white-space:normal;"> <i class="fa fas fa-phone"> </i><span>Dúvidas? Ligue para nós!</span></li> </a>
+                  </ul>
+                  <ul class="profile-follow">
+                    <li> 
+                      <h4>{{x.valorFrete | currency:'R$' }} </h4><span>Valor</span>
+                    </li>
+                    <li> 
+                      <h4>{{x.placa_motorista}}</h4><span>Placa</span>
+                    </li>
+                  </ul>
+                </div>
+                <div ng-controller="MyController" ng-click="openModalPedido()" class="button">Ver pedido</div>
+                <div ng-controller="MyController" ng-show="x.status == 'Encaminhado ao motorista!'" ng-click="aceitarCorrida(x.id)" class="buttonConfirm">Aceitar Corrida</div>
+                <div ng-controller="MyController"  ng-show="x.status == 'Motorista a caminho!'"  ng-click="finalizarCorrida(x.id)"class="buttonFinish">Finalizar Corrida</div>
+               
+              </div>                      
+
+              
+           </ion-item>
+
+
+
+
+
+       </ion-list>
+   </ion-content>
+  </ion-view>
+
