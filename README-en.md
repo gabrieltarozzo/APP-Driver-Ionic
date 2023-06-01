@@ -1,6 +1,8 @@
 # APP Driver
 
-![APP Driver Logo](https://github.com/gabrieltarozzo/APP-Driver-Ionic/blob/master/MyApp/resources/icon.png)
+<p align="center">
+<img src="https://github.com/gabrieltarozzo/APP-Driver-Ionic/blob/master/MyApp/resources/icon.png" alt="Logo do Aplicativo" width="200">
+</p>
 
 APP Driver is a fleet management application developed to streamline the control of delivery drivers. It integrates with a PHP-based administrative system to provide comprehensive management of each registered driver. With its powerful features and user-friendly interface, APP Driver enhances efficiency and organization in fleet management.
 
