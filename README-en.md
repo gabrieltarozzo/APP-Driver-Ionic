@@ -35,7 +35,6 @@ To get started with APP Driver, follow these steps:
    ```shell
    git clone https://github.com/your-username/app-driver.git
 
-   
 2.  Install the necessary dependencies by running the following command:
 
   ```shell
