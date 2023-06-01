@@ -37,14 +37,14 @@ To get started with APP Driver, follow these steps:
    
 2.  Install the necessary dependencies by running the following command:
 
-  `shell
+  ```shell
    npm install
-
+```
 4.  Start the development server:
 
-   `shell
+   ```shell
    ionic serve
-   
+```
 5.  Set up the PHP-based administrative system by following the instructions provided in the respective repository.
     Launch the app and log in using your administrative credentials to access the fleet management features.
 
